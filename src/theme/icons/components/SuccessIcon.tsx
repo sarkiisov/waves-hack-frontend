@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { COLOR_MINT_300 } from '../../colors';
+import { COLOR_INDIGO_300 } from '../../colors';
 
 import { IconProps } from '../icons.types';
 
@@ -13,7 +13,7 @@ export const NotifySuccessIcon: React.FC<IconProps> = (props) => (
     viewBox="2 2 20 20"
     {...props}
   >
-    <path fillRule="evenodd" clipRule="evenodd" d="M12.0005 2.00049C6.47749 2.00049 2.00049 6.47749 2.00049 12.0005C2.00049 17.5225 6.47749 22.0005 12.0005 22.0005C17.5235 22.0005 22.0005 17.5225 22.0005 12.0005C22.0005 6.47749 17.5235 2.00049 12.0005 2.00049Z" fill={COLOR_MINT_300} />
+    <path fillRule="evenodd" clipRule="evenodd" d="M12.0005 2.00049C6.47749 2.00049 2.00049 6.47749 2.00049 12.0005C2.00049 17.5225 6.47749 22.0005 12.0005 22.0005C17.5235 22.0005 22.0005 17.5225 22.0005 12.0005C22.0005 6.47749 17.5235 2.00049 12.0005 2.00049Z" fill={COLOR_INDIGO_300} />
     <mask id="mask0_2916_678" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="21">
       <path fillRule="evenodd" clipRule="evenodd" d="M12.0005 2.00049C6.47749 2.00049 2.00049 6.47749 2.00049 12.0005C2.00049 17.5225 6.47749 22.0005 12.0005 22.0005C17.5235 22.0005 22.0005 17.5225 22.0005 12.0005C22.0005 6.47749 17.5235 2.00049 12.0005 2.00049Z" fill="white" />
     </mask>
