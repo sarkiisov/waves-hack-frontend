@@ -26,15 +26,7 @@ export const Copyable: FC<CopyableProps> = ({
         if (onCopy) onCopy();
         setNotification({
           type: 'success',
-          message: 'Toast message',
-        });
-        setNotification({
-          type: 'info',
-          message: 'Toast message',
-        });
-        setNotification({
-          type: 'error',
-          message: 'Toast message',
+          message: 'Value copied to clipboard',
         });
       }}
     >
