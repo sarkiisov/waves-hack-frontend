@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useStyles } from "./LiquidityCard.styles";
+import { WalletService } from "../../service/WalletService";
 import { Box, Button, IconButton, Typography } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../Input";
 
 const LiquidityCard = () => {
+  const walletContext = useContext(WalletService);
   const classes = useStyles();
   const navigate = useNavigate();
   const [firstInput, setFirstInput] = useState("");
@@ -44,13 +46,28 @@ const LiquidityCard = () => {
         <Typography variant={"body1"}>Комиссия за транзакцию</Typography>
         <Typography variant={"body1"}>0.005 WEST</Typography>
       </Box>
-      <Button
-        variant="contained"
-        size="large"
-        className={classes.btn}
-      >
-        Вложить
-      </Button>
+
+      {
+        walletContext?.isConnected
+        ?
+        <Button
+          variant="contained"
+          size="large"
+          className={classes.btn}
+        >
+          Вложить
+        </Button>
+        :
+        <Button
+          variant="contained"
+          size="large"
+          className={classes.btn}
+          onClick={async () => await walletContext?.connect()}
+        >
+          Подключить кошелек
+        </Button>
+      }
+      
     </Box>
   );
 };

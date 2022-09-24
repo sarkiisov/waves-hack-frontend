@@ -1,11 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { Box, Button, IconButton, Typography } from "@material-ui/core";
 import { useStyles } from "./SwapCard.styles";
 import { TextArea } from "../TextArea";
 import { InputAdornment } from "../InputAdornment/InputAdornment";
 import CompareArrowsIcon from "@material-ui/icons/CompareArrows";
+import { WalletService } from "../../service/WalletService";
 
 const SwapCard: FC = () => {
+  const walletContext = useContext(WalletService);
   const classes = useStyles();
   return (
     <>
@@ -24,14 +26,27 @@ const SwapCard: FC = () => {
           </IconButton>
           <InputAdornment placeholder={"0.0000"} />
         </Box>
-        <Button
-          variant="contained"
-          size="large"
-          onClick={() => console.log("change")}
-          className={classes.btnChange}
-        >
-          Обменять
-        </Button>
+        {
+          walletContext?.isConnected
+          ?
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => console.log("change")}
+            className={classes.btnChange}
+          >
+            Обменять
+          </Button>
+          :
+          <Button
+            variant="contained"
+            size="large"
+            onClick={async () => await walletContext?.connect()}
+            className={classes.btnChange}
+          >
+            Подключить кошелек
+          </Button>
+        }
       </Box>
     </>
   );
