@@ -6,12 +6,12 @@ import { InputAdornment } from "../InputAdornment/InputAdornment";
 import CompareArrowsIcon from "@material-ui/icons/CompareArrows";
 import { WalletService } from "../../service/WalletService";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/configureStore";
+import { AppDispatch, RootState } from "../../store/configureStore";
 import { connectWallet } from "../../store/reducers/walletSlice";
 import { AnyAction } from "@reduxjs/toolkit";
 
 const SwapCard: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const classes = useStyles();
   const {
     wallet: { wallet },
@@ -46,7 +46,6 @@ const SwapCard: FC = () => {
           <Button
             variant="contained"
             size="large"
-            // @ts-ignore
             onClick={() => dispatch(connectWallet())}
             className={classes.btnChange}
           >
