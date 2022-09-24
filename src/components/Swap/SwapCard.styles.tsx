@@ -10,6 +10,8 @@ export const useStyles = makeStyles(() => {
       padding: "16px 16px 24px",
       background: "rgb(25, 27, 31)",
       borderRadius: "20px",
+      backdropFilter: 'blur(8px)',
+      border: `1px solid ${COLOR_INDIGO_600}`
     },
     head: {
       padding: "8px 12px",

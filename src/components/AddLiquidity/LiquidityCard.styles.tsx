@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core/styles";
-import { COLOR_TRANSPARENT_100 } from "../../theme/colors";
+import { COLOR_INDIGO_600, COLOR_TRANSPARENT_100 } from "../../theme/colors";
 
 export const useStyles = makeStyles(() => {
   return createStyles({
@@ -18,6 +18,8 @@ export const useStyles = makeStyles(() => {
       background: COLOR_TRANSPARENT_100,
       borderRadius: "20px",
       position: "relative",
+      backdropFilter: 'blur(8px)',
+      border: `1px solid ${COLOR_INDIGO_600}`
     },
     head: {
       padding: "8px 12px",
