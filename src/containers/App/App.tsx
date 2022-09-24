@@ -8,6 +8,8 @@ import { IOptions, RecursivePartial } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { theme } from '../../theme';
 import Routes from '../Routes';
+import Layout from "../Layout/Layout";
+
 
 import { backgroundConfig } from '../../assets';
 
@@ -32,7 +34,9 @@ export default function App() {
           draggable={false}
           transition={Slide}
         />
-        <Routes />
+        <Layout>
+          <Routes />
+        </Layout>
       </StylesProvider>
     </ThemeProvider>
   );

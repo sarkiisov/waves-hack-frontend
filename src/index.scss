@@ -5,18 +5,21 @@
   padding: 0px !important;
   width: 400px !important;
 }
-@media only screen and (max-width: 480px)  {
+
+@media only screen and (max-width: 480px) {
   .Toastify__toast-container {
     width: 100% !important;
     padding: 1rem;
   }
 }
+
 .Toastify__toast-body {
   padding: 0px;
   background: none !important;
   box-shadow: none !important;
   border-radius: 50% !important;
 }
+
 .Toastify__toast {
   padding: 0px;
   display: flex;
@@ -46,10 +49,12 @@
   &--info {
   }
 }
+
 .Toastify__toast-theme--light {
   -webkit-tap-highlight-color: transparent;
   background: none;
 }
+
 #tsparticles {
   position: absolute;
   z-index: -1;

@@ -1,7 +1,7 @@
-import { Theme } from '@material-ui/core';
-import { Overrides } from '@material-ui/core/styles/overrides';
-import { ComponentsProps } from '@material-ui/core/styles/props';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { Theme } from "@material-ui/core";
+import { Overrides } from "@material-ui/core/styles/overrides";
+import { ComponentsProps } from "@material-ui/core/styles/props";
+import { CSSProperties } from "@material-ui/styles/withStyles";
 import {
   COLOR_INDIGO_100,
   COLOR_INDIGO_200,
@@ -11,36 +11,36 @@ import {
   COLOR_INDIGO_700,
   COLOR_TRANSPARENT_100,
   COLOR_TRANSPARENT_200,
-} from '../colors';
-import { FontWeights } from '../Typography/Typography.theme';
+} from "../colors";
+import { FontWeights } from "../Typography/Typography.theme";
 
-export const getMuiButton = (theme: Theme): Overrides['MuiButton'] => {
+export const getMuiButton = (theme: Theme): Overrides["MuiButton"] => {
   const buttonLarge: CSSProperties = {
-    borderRadius: '14px',
-    padding: '14px 16px',
-    fontSize: '16px',
-    lineHeight: '23px',
-    minHeight: '53px',
+    borderRadius: "14px",
+    padding: "14px 16px",
+    fontSize: "16px",
+    lineHeight: "23px",
+    minHeight: "53px",
 
-    [theme.breakpoints.up('sm')]: {
-      minWidth: '164px',
+    [theme.breakpoints.up("sm")]: {
+      minWidth: "164px",
     },
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
     },
   };
 
   const buttonSmall: CSSProperties = {
-    borderRadius: '65px',
-    padding: '10px 35px',
-    fontSize: '14px',
-    lineHeight: '20px',
+    borderRadius: "65px",
+    padding: "10px 35px",
+    fontSize: "14px",
+    lineHeight: "20px",
 
-    [theme.breakpoints.up('sm')]: {
-      minWidth: '110px',
+    [theme.breakpoints.up("sm")]: {
+      minWidth: "110px",
     },
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
     },
   };
 
@@ -48,7 +48,7 @@ export const getMuiButton = (theme: Theme): Overrides['MuiButton'] => {
     backgroundColor: COLOR_TRANSPARENT_100,
     color: COLOR_INDIGO_200,
     border: `1px solid ${COLOR_INDIGO_400G}`,
-    '&:hover': {
+    "&:hover": {
       backgroundColor: COLOR_INDIGO_400G,
       borderColor: COLOR_INDIGO_400G,
       color: COLOR_INDIGO_700,
@@ -60,23 +60,23 @@ export const getMuiButton = (theme: Theme): Overrides['MuiButton'] => {
     color: COLOR_INDIGO_100,
     border: `1px solid ${COLOR_INDIGO_600}`,
 
-    '& $endIcon svg > *': {
+    "& $endIcon svg > *": {
       fill: COLOR_INDIGO_600,
     },
-    '&:hover $endIcon svg > *': {
+    "&:hover $endIcon svg > *": {
       fill: COLOR_INDIGO_300,
     },
-    '&:active $endIcon svg > *': {
+    "&:active $endIcon svg > *": {
       fill: COLOR_INDIGO_600,
     },
 
-    '&:hover': {
+    "&:hover": {
       backgroundColor: COLOR_TRANSPARENT_200,
       borderColor: COLOR_INDIGO_300,
       color: COLOR_INDIGO_300,
     },
 
-    '&:active': {
+    "&:active": {
       backgroundColor: COLOR_INDIGO_300,
       fontColor: COLOR_INDIGO_700,
       color: COLOR_INDIGO_600,
@@ -87,7 +87,7 @@ export const getMuiButton = (theme: Theme): Overrides['MuiButton'] => {
     backgroundColor: COLOR_TRANSPARENT_200,
     color: COLOR_INDIGO_300,
     border: `1px solid ${COLOR_INDIGO_400G}`,
-    '&:hover': {
+    "&:hover": {
       backgroundColor: COLOR_INDIGO_300,
       borderColor: COLOR_INDIGO_400G,
       color: COLOR_INDIGO_700,
@@ -97,45 +97,45 @@ export const getMuiButton = (theme: Theme): Overrides['MuiButton'] => {
   const contained: CSSProperties = {
     backgroundColor: COLOR_INDIGO_300,
     color: COLOR_INDIGO_700,
-    border: 'none',
-    '&:hover': {
+    border: "none",
+    "&:hover": {
       backgroundColor: COLOR_INDIGO_400G,
     },
   };
 
   return {
     root: {
-      textAlign: 'center',
-      transition: '200ms',
+      textAlign: "center",
+      transition: "200ms",
       fontWeight: FontWeights.fontWeightMedium,
 
-      '&.toggle-button': {
-        width: '110px',
-        height: '42px',
-        fontSize: '16px',
+      "&.toggle-button": {
+        width: "110px",
+        height: "42px",
+        fontSize: "16px",
         color: COLOR_INDIGO_100,
-        backgroundColor: 'transparent',
-        border: '1px solid transparent',
-        borderRadius: '65px',
-        justifyContent: 'left',
-        '& svg': {
-          transition: '200ms',
+        backgroundColor: "transparent",
+        border: "1px solid transparent",
+        borderRadius: "65px",
+        justifyContent: "left",
+        "& svg": {
+          transition: "200ms",
         },
-        '&.selected': {
+        "&.selected": {
           color: COLOR_INDIGO_400G,
           backgroundColor: COLOR_INDIGO_700,
           border: `1px solid ${COLOR_INDIGO_600}`,
-          '& svg': {
-            transform: 'rotate(-180deg)',
+          "& svg": {
+            transform: "rotate(-180deg)",
           },
         },
-        '&:hover': {
+        "&:hover": {
           color: COLOR_INDIGO_400G,
           backgroundColor: COLOR_INDIGO_700,
           border: `1px solid ${COLOR_INDIGO_600}`,
         },
-        '& svg > *': {
-          fill: 'currentColor',
+        "& svg > *": {
+          fill: "currentColor",
         },
       },
     },
@@ -165,15 +165,15 @@ export const getMuiButton = (theme: Theme): Overrides['MuiButton'] => {
     },
 
     endIcon: {
-      marginLeft: '12px',
+      marginLeft: "12px",
       marginRight: 0,
     },
   };
 };
 
-export const getMuiButtonDefaultProps = (): ComponentsProps['MuiButton'] => ({
+export const getMuiButtonDefaultProps = (): ComponentsProps["MuiButton"] => ({
   disableElevation: false,
   disableFocusRipple: true,
   disableRipple: true,
-  variant: 'outlined',
+  variant: "outlined",
 });
