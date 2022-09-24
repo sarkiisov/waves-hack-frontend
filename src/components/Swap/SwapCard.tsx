@@ -5,10 +5,17 @@ import { TextArea } from "../TextArea";
 import { InputAdornment } from "../InputAdornment/InputAdornment";
 import CompareArrowsIcon from "@material-ui/icons/CompareArrows";
 import { WalletService } from "../../service/WalletService";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/configureStore";
+import { connectWallet } from "../../store/reducers/walletSlice";
+import { AnyAction } from "@reduxjs/toolkit";
 
 const SwapCard: FC = () => {
-  const walletContext = useContext(WalletService);
+  const dispatch = useDispatch();
   const classes = useStyles();
+  const {
+    wallet: { wallet },
+  } = useSelector((store: RootState) => store);
   return (
     <>
       <Box className={classes.swap}>
@@ -26,9 +33,7 @@ const SwapCard: FC = () => {
           </IconButton>
           <InputAdornment placeholder={"0.0000"} />
         </Box>
-        {
-          walletContext?.isConnected
-          ?
+        {wallet ? (
           <Button
             variant="contained"
             size="large"
@@ -37,16 +42,17 @@ const SwapCard: FC = () => {
           >
             Обменять
           </Button>
-          :
+        ) : (
           <Button
             variant="contained"
             size="large"
-            onClick={async () => await walletContext?.connect()}
+            // @ts-ignore
+            onClick={() => dispatch(connectWallet())}
             className={classes.btnChange}
           >
             Подключить кошелек
           </Button>
-        }
+        )}
       </Box>
     </>
   );

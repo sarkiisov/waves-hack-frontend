@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { sdk } from '../config';
-import { setNotification } from '../utils';
+import React, { useEffect, useState } from "react";
+import { sdk } from "../config";
+import { setNotification } from "../utils";
 
 interface AppContextInterface {
   wallet: any;
@@ -9,37 +9,38 @@ interface AppContextInterface {
   connect: () => void;
 }
 
-export const WalletService = React.createContext<AppContextInterface | null>(null);
+export const WalletService = React.createContext<AppContextInterface | null>(
+  null
+);
 
-export const WalletProvider = ({children}: any) => {
+export const WalletProvider = ({ children }: any) => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
-  
 
   const context: AppContextInterface = {
     wallet: null,
     sdk: sdk,
     connect,
-    isConnected
-  }
+    isConnected,
+  };
 
   async function connect() {
     try {
-      if(isConnected) return;
-      console.log(window.WEWallet);
+      if (isConnected) return;
       await window.WEWallet.initialPromise;
       const walletState = await window.WEWallet.publicState();
+      console.log(walletState);
       context.wallet = walletState;
       setIsConnected(true);
       setNotification({
-        type: 'success',
-        message: 'WEWallet connected'
-      })
+        type: "success",
+        message: "WEWallet connected",
+      });
     } catch (err) {
       setNotification({
-        type: 'error',
-        message: 'WEWallet connection error'
-      })
-      console.log('error', err);
+        type: "error",
+        message: "WEWallet connection error",
+      });
+      console.log("error", err);
     }
   }
 
@@ -48,7 +49,5 @@ export const WalletProvider = ({children}: any) => {
   //   return true;
   // }
 
-  return (
-    <WalletService.Provider value={context} children={children}/>
-  )
-}
+  return <WalletService.Provider value={context} children={children} />;
+};

@@ -6,8 +6,6 @@ import { Box } from "@material-ui/core";
 import { WalletService } from "../../service/WalletService";
 
 export const Pool = () => {
-  const walletContext = useContext(WalletService);
-
   return (
     <>
       <Box>
