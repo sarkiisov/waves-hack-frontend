@@ -46,7 +46,6 @@ const LiquidityCard = () => {
       </Box>
       <Button
         variant="contained"
-        color="primary"
         size="large"
         className={classes.btn}
       >
