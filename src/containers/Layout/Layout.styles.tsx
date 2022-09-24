@@ -32,6 +32,8 @@ export const useStyles = makeStyles(() => {
     logo: {
       fontFamily: "Pacifico, cursive;",
       fontSize: "28px",
+      userSelect: "none",
+      msUserSelect: "none",
     },
     btnWrapper: {
       justifySelf: "center",
