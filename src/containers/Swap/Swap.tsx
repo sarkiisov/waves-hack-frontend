@@ -1,48 +1,54 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  Box, Button, Switch, Typography,
-} from '@material-ui/core';
-import React, { ChangeEvent, useState } from 'react';
-import { Copyable } from '../../components/Copyable';
-import { Input } from '../../components/Input';
-import { Select } from '../../components/Select';
-import { TextArea } from '../../components/TextArea';
-import { SelectValue } from '../../types/components';
+import { Box, Button, Switch, Typography } from "@material-ui/core";
+import React, { ChangeEvent, useState } from "react";
+import { Copyable } from "../../components/Copyable";
+import { Input } from "../../components/Input";
+import { Select } from "../../components/Select";
+import { TextArea } from "../../components/TextArea";
+import { SelectValue } from "../../types/components";
+import SwapCard from "../../components/Swap/SwapCard";
+import { Link } from "react-router-dom";
 
 const networkValues: SelectValue[] = [
   {
-    value: 'BSC',
-    label: 'BSC',
+    value: "WEST/HACK",
+    label: "WEST/HACK",
   },
   {
-    value: 'Ethereum',
-    label: 'Ethereum',
+    value: "HACK2/WEST",
+    label: "HACK2/WEST",
   },
 ];
 
 const filterValues: SelectValue[] = [
-  'Apr High',
-  'Apr Low',
-  'Total stacked High',
-  'Total stacked Low',
-  'Status completed',
-  'Status Act/Upcoming',
+  "Apr High",
+  "Apr Low",
+  "Total stacked High",
+  "Total stacked Low",
+  "Status completed",
+  "Status Act/Upcoming",
 ].map((label) => ({ value: label, label }));
 
-export const Test = () => {
+export const Swap = () => {
   const [netValue, setNetValue] = useState(networkValues[0].value);
   const [filterValue, setFilterValue] = useState(filterValues[0].value);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
-  const getSelectHandler = (callback: { (value: React.SetStateAction<string>): void; (value: React.SetStateAction<string>): void; (arg0: any): void; }) => (event: ChangeEvent<HTMLInputElement>) => {
-    callback(event.target.value);
-  };
+  const getSelectHandler =
+    (callback: {
+      (value: React.SetStateAction<string>): void;
+      (value: React.SetStateAction<string>): void;
+      (arg0: any): void;
+    }) =>
+    (event: ChangeEvent<HTMLInputElement>) => {
+      callback(event.target.value);
+    };
 
   const handleChangeNet = getSelectHandler(setNetValue);
   const handleChangeFilter = getSelectHandler(setFilterValue);
   return (
     <>
-      <Box padding="20px">
+      {/*<Box padding="20px">
         <Typography>Outlined</Typography>
         <Box>
           <Button variant="outlined" size="large">
@@ -116,8 +122,13 @@ export const Test = () => {
         />
       </Box>
       <Box padding="20px">
-        <Copyable valueToCopy="0xdE12C39621c420571c5d676ac5c8Cbf85370Ea01" variant="primary" />
-      </Box>
+        <Copyable
+          valueToCopy="0xdE12C39621c420571c5d676ac5c8Cbf85370Ea01"
+          variant="primary"
+        />
+      </Box>*/}
+      <SwapCard />
+      <Link to="/pool">pool</Link>
     </>
   );
 };

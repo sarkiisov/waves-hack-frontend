@@ -1,10 +1,11 @@
-import React from 'react';
-import { ThemeProvider, StylesProvider } from '@material-ui/styles';
-import { CssBaseline } from '@material-ui/core';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, Slide } from 'react-toastify';
-import { theme } from '../../theme';
-import Routes from '../Routes';
+import React from "react";
+import { ThemeProvider, StylesProvider } from "@material-ui/styles";
+import { CssBaseline } from "@material-ui/core";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, Slide } from "react-toastify";
+import { theme } from "../../theme";
+import Routes from "../Routes";
+import Layout from "../Layout/Layout";
 
 export default function App() {
   return (
@@ -18,7 +19,9 @@ export default function App() {
           draggable={false}
           transition={Slide}
         />
-        <Routes />
+        <Layout>
+          <Routes />
+        </Layout>
       </StylesProvider>
     </ThemeProvider>
   );
