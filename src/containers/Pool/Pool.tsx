@@ -9,7 +9,6 @@ export const Pool = () => {
     <>
       <Box>
         <PoolCard />
-        <Link to="/">swap</Link>
       </Box>
     </>
   );
