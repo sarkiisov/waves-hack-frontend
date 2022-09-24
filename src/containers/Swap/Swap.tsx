@@ -128,7 +128,6 @@ export const Swap = () => {
         />
       </Box>*/}
       <SwapCard />
-      <Link to="/pool">pool</Link>
     </>
   );
 };

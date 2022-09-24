@@ -12,12 +12,6 @@ export const Pool = () => {
     <>
       <Box>
         <PoolCard />
-        <button onClick={() => console.log(walletContext?.isConnected()) }>isConnected</button>
-        <button onClick={async () => {
-          const res = await walletContext?.connect()
-          console.log(res);
-        } }>Connect</button>
-        <Link to="/">swap</Link>
       </Box>
     </>
   );
