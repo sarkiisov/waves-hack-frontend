@@ -1,3 +1,6 @@
+::-webkit-scrollbar {
+  display: none;
+}
 .Toastify__toast-container {
   padding: 0px !important;
   width: 400px !important;
@@ -46,4 +49,8 @@
 .Toastify__toast-theme--light {
   -webkit-tap-highlight-color: transparent;
   background: none;
+}
+#tsparticles {
+  position: absolute;
+  z-index: -1;
 }
