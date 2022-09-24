@@ -1,11 +1,11 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { ChangeEventHandler, FocusEventHandler, VFC } from 'react';
+import React, { ChangeEventHandler, FocusEventHandler, VFC } from "react";
 
-import { TextField } from '@material-ui/core';
+import { TextField } from "@material-ui/core";
 
-import clsx from 'clsx';
-import { omit } from 'lodash';
-import { useStyles } from './TextArea.styles';
+import clsx from "clsx";
+import { omit } from "lodash";
+import { useStyles } from "./TextArea.styles";
 
 export interface TextAreaProps {
   className?: string;
@@ -16,13 +16,14 @@ export interface TextAreaProps {
   label?: string;
   error?: boolean;
   placeholder?: string;
+  adornment?: any;
 }
 
 export const TextArea: VFC<TextAreaProps> = (props) => {
   const classes = useStyles();
   return (
     <TextField
-      {...omit({ ...props }, 'className')}
+      {...omit({ ...props }, "className")}
       autoComplete="off"
       multiline
       className={clsx(classes.root, props.className)}
