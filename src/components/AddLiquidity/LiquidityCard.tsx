@@ -13,7 +13,7 @@ const LiquidityCard = () => {
   return (
     <Box className={classes.liquidity}>
       <IconButton
-        aria-label="delete"
+        aria-label="back"
         onClick={() => navigate("/pool")}
         className={classes.backBtn}
       >
