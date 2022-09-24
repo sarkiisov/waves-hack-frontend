@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { ThemeProvider, StylesProvider } from '@material-ui/styles';
 import { CssBaseline } from '@material-ui/core';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,9 +9,8 @@ import { loadFull } from 'tsparticles';
 import { theme } from '../../theme';
 import Routes from '../Routes';
 import Layout from "../Layout/Layout";
-
-
 import { backgroundConfig } from '../../assets';
+import { WalletProvider } from '../../service/WalletService';
 
 export default function App() {
   const particlesInit = useCallback(async (engine: any) => {
@@ -34,9 +33,11 @@ export default function App() {
           draggable={false}
           transition={Slide}
         />
-        <Layout>
-          <Routes />
-        </Layout>
+        <WalletProvider >
+          <Layout>
+            <Routes />
+          </Layout>
+        </WalletProvider>
       </StylesProvider>
     </ThemeProvider>
   );
