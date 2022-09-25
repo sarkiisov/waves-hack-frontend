@@ -24,14 +24,26 @@ const SwapCard: FC = () => {
         </Box>
         <Box className={classes.inputWrapper}>
           <InputAdornment placeholder={"0.0000"} />
-          <IconButton
-            aria-label="switch"
-            onClick={() => console.log("switch")}
-            className={classes.switchBtn}
-          >
-            <CompareArrowsIcon />
-          </IconButton>
+          <Box className={classes.iconBtnWrapper}>
+            {wallet && (
+              <Box className={classes.balance}>
+                <Typography variant="caption">Баланс: 0</Typography>
+              </Box>
+            )}
+            <IconButton
+              aria-label="switch"
+              onClick={() => console.log("switch")}
+              className={classes.switchBtn}
+            >
+              <CompareArrowsIcon />
+            </IconButton>
+          </Box>
           <InputAdornment placeholder={"0.0000"} />
+          {wallet && (
+            <Box className={classes.balance}>
+              <Typography variant="caption">Баланс: 0</Typography>
+            </Box>
+          )}
         </Box>
         {wallet ? (
           <Button

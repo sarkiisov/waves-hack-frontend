@@ -10,8 +10,8 @@ export const useStyles = makeStyles(() => {
       padding: "16px 16px 24px",
       background: COLOR_TRANSPARENT_100,
       borderRadius: "20px",
-      backdropFilter: 'blur(8px)',
-      border: `1px solid ${COLOR_INDIGO_600}`
+      backdropFilter: "blur(8px)",
+      border: `1px solid ${COLOR_INDIGO_600}`,
     },
     head: {
       padding: "8px 12px",
@@ -23,7 +23,7 @@ export const useStyles = makeStyles(() => {
     inputWrapper: {
       display: "flex",
       flexDirection: "column",
-      rowGap: "12px",
+      rowGap: "8px",
       marginBottom: "24px",
     },
     switchBtn: {
@@ -36,5 +36,10 @@ export const useStyles = makeStyles(() => {
     btnChange: {
       width: "100%",
     },
+    iconBtnWrapper: {
+      display: "flex",
+      justifyContent: "space-between",
+    },
+    balance: {},
   });
 });
