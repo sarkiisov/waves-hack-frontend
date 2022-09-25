@@ -15,15 +15,18 @@ import { Select } from "../Select";
 import { SelectValue } from "../../types/components";
 
 export interface TextAreaProps {
+  selectValue: string;
+  values: string[];
+  onSelectChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   className?: string;
   name?: string;
   value?: string;
   onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-  onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   label?: string;
   error?: boolean;
   placeholder?: string;
   adornment?: any;
+  
 }
 
 const filterValues: SelectValue[] = ["WEST", "HACK1", "HACK2"].map((label) => ({
@@ -31,24 +34,19 @@ const filterValues: SelectValue[] = ["WEST", "HACK1", "HACK2"].map((label) => ({
   label,
 }));
 
+const parseValues = (values: string[]) => {
+  return values.map((label) => ({
+    value: label,
+    label,
+  }));
+}
+
 export const InputAdornment: VFC<TextAreaProps> = (props) => {
   const classes = useStyles();
-  const [filterValue, setFilterValue] = useState(filterValues[0].value);
-
-  const getSelectHandler =
-    (callback: {
-      (value: React.SetStateAction<string>): void;
-      (value: React.SetStateAction<string>): void;
-      (arg0: any): void;
-    }) =>
-    (event: ChangeEvent<HTMLInputElement>) => {
-      callback(event.target.value);
-    };
-
-  const handleChangeFilter = getSelectHandler(setFilterValue);
+  
   return (
     <TextField
-      {...omit({ ...props }, "className")}
+      {...omit({ ...props }, "className", "selectValue")}
       autoComplete="off"
       multiline
       className={clsx(classes.inputAdornment, props.className)}
@@ -56,10 +54,10 @@ export const InputAdornment: VFC<TextAreaProps> = (props) => {
       InputProps={{
         endAdornment: (
           <Select
-            values={filterValues}
+            values={parseValues(props.values)}
             size="small"
-            value={filterValue}
-            onChange={handleChangeFilter}
+            value={props.selectValue}
+            onChange={props.onSelectChange}
           />
         ),
       }}
