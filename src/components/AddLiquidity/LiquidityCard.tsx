@@ -5,9 +5,15 @@ import { Box, Button, IconButton, Typography } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../Input";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/configureStore";
+import { connectWallet } from "../../store/reducers/walletSlice";
 
 const LiquidityCard = () => {
-  const walletContext = useContext(WalletService);
+  const dispatch = useDispatch<AppDispatch>();
+  const {
+    wallet: { wallet },
+  } = useSelector((store: RootState) => store);
   const classes = useStyles();
   const navigate = useNavigate();
   const [firstInput, setFirstInput] = useState("");
@@ -46,9 +52,8 @@ const LiquidityCard = () => {
         <Typography variant={"body1"}>Комиссия за транзакцию</Typography>
         <Typography variant={"body1"}>0.005 WEST</Typography>
       </Box>
-
       {
-        walletContext?.isConnected
+        wallet
         ?
         <Button
           variant="contained"
@@ -62,7 +67,7 @@ const LiquidityCard = () => {
           variant="contained"
           size="large"
           className={classes.btn}
-          onClick={async () => await walletContext?.connect()}
+          onClick={() => dispatch(connectWallet())}
         >
           Подключить кошелек
         </Button>

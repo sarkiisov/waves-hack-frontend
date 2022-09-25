@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core/styles";
-import { COLOR_INDIGO_600, COLOR_TRANSPARENT_100 } from "../../theme/colors";
+import { COLOR_INDIGO_200, COLOR_INDIGO_600, COLOR_TRANSPARENT_100 } from "../../theme/colors";
+import { FontWeights } from "../../theme/Typography/Typography.theme";
 
 export const useStyles = makeStyles(() => {
   return createStyles({
@@ -41,5 +42,9 @@ export const useStyles = makeStyles(() => {
       justifyContent: "space-between",
     },
     balance: {},
+    balanceAmount: {
+      fontWeight: FontWeights.fontWeightBold,
+      color: COLOR_INDIGO_200
+    }
   });
 });
