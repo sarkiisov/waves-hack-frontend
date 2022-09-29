@@ -23,7 +23,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-      /*"no-console": 1,
+      "no-console": 1,
       "no-continue": 0,
       "no-alert": 0,
       "max-len": 0,
@@ -41,7 +41,6 @@
       "jsx-a11y/click-events-have-key-events": 0,
       "operator-linebreak": ["error", "after", { "overrides": { "?": "ignore", ":": "ignore" } }],
       "@typescript-eslint/default-param-last": 0,
-      */
     },
     "ignorePatterns": ["*.js", "*.ts", "*.tsx"]
 }
